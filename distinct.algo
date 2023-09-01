@@ -1,0 +1,23 @@
+FUNCTION distinct(t1, t2: tab; n, m: INTEGER): INTEGER
+VAR
+    s: INTEGER
+BEGIN
+    s = 0; 
+    
+    FOR i FROM 0 TO n - 1 DO
+        find = false;  
+        
+        FOR j FROM 0 TO m - 1 DO
+            IF (t1[i] = t2[j]) THEN
+                find = true; 
+                BREAK; 
+            END_IF
+        END_FOR
+        
+        IF (find == false) THEN
+            s = s + t1[i]; 
+        END_IF
+    END_FOR
+    
+    RETURN s;  
+END

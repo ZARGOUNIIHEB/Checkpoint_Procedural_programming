@@ -1,0 +1,47 @@
+PROCEDURE dotProduct(v1,v2 : ARRAY_OF FLOAT[3])
+VAR
+    	i:INTEGER;
+    	ps:FLOAT;
+BEGIN
+   	ps:=0;
+    	FOR i FROM 0 TO 2 STEP 1  DO
+        	ps:=ps+v1[i]*v2[i];
+    	END_FOR
+END
+
+FUNCTION scalarProduct(v1,v2 : ARRAY_OF FLOAT[3]) :FLOAT
+VAR
+   	i:INTEGER;
+    	ps:FLOAT
+BEGIN
+    	ps=0;
+    	FOR i FROM 0 TO 2 STEP 1  DO
+        	ps=ps+v1[i]*v2[i];
+   	END_FOR
+    	RETURN ps ;
+END
+
+
+ALGORITHM orthogonal
+VAR
+    	v1,v2 : ARRAY_OF FLOAT[3];
+    	ps:=FLOAT;
+    	i:INTEGER;
+  
+
+BEGIN
+	FOR i FROM 0 TO 2 STEP 1  DO
+    		write("Do you want to enter the value V1 ?");
+    		Read(v1[i]);
+    		write("Do you want to enter the value V2 ?");
+    		Read(v2[i]);
+	END_FOR
+ 
+   	dotProduct(v1,v2)
+   	write(ps);
+   	IF (ps=0) THEN
+       		write("Orthogonal")
+   	ELSE
+       		write("Not Orthogonal")
+   	END_IF
+END
